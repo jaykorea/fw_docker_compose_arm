@@ -36,13 +36,13 @@ services:
       - "ROS_MASTER_URI=http://192.168.0.9:11311"
     volumes:
       - "/dev:/dev"
-      - "~/docker_compose/docker_fw04_arm/data:/data"
-      - "~/docker_compose/docker_fw04_arm/map:/robot/map"
-      # - "~/docker_compose/docker_fw04_arm/param:/robot/param"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_init:/home/freeway_rev04/src/fw_init"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
+      - "~/docker_compose/docker_rtab_arm/data:/data"
+      - "~/docker_compose/docker_rtab_arm/map:/robot/map"
+      # - "~/docker_compose/docker_rtab_arm/param:/robot/param"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_init:/home/freeway_rev04/src/fw_init"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
       # - "/tmp/argus_socket:/tmp/argus_socket"
       #- "/tmp/.X11-unix/:/tmp/.X11-unix:rw"
       #- "/tmp/.docker.xauth:/tmp/.docker.xauth:rw"
@@ -77,13 +77,13 @@ services:
     # command: zsh
     volumes:
       - "/dev:/dev"
-      - "~/docker_compose/docker_fw04_arm/data:/data"
-      - "~/docker_compose/docker_fw04_arm/map:/robot/map"
-      #  - "~/docker_compose/docker_fw04_arm/param:/robot/param"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_init:/home/freeway_rev04/src/fw_init"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
+      - "~/docker_compose/docker_rtab_arm/data:/data"
+      - "~/docker_compose/docker_rtab_arm/map:/robot/map"
+      #  - "~/docker_compose/docker_rtab_arm/param:/robot/param"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_init:/home/freeway_rev04/src/fw_init"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
     command: ["/bin/zsh", "-c", "source /root/.zshrc; roslaunch --wait fw_rev_04_init fw_robot.launch;"]
 
   fw_cam:
@@ -118,13 +118,13 @@ services:
     # command: zsh
     volumes:
       - "/dev:/dev"
-      - "~/docker_compose/docker_fw04_arm/data:/data"
-      - "~/docker_compose/docker_fw04_arm/map:/robot/map"
-      # - "~/docker_compose/docker_fw04_arm/param:/robot/param"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_init:/home/freeway_rev04/src/fw_init"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
+      - "~/docker_compose/docker_rtab_arm/data:/data"
+      - "~/docker_compose/docker_rtab_arm/map:/robot/map"
+      # - "~/docker_compose/docker_rtab_arm/param:/robot/param"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_init:/home/freeway_rev04/src/fw_init"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
     command: ["/bin/zsh", "-c", "source /root/.zshrc; roslaunch --wait fw_rev_04_cam launch_d455_ekf_wheel_imu_jay.launch initial_reset:=false;"]
 
   fw_rtabmap:
@@ -159,13 +159,13 @@ services:
     # command: zsh
     volumes:
       - "/dev:/dev"
-      - "~/docker_compose/docker_fw04_arm/data:/data"
-      - "~/docker_compose/docker_fw04_arm/map:/robot/map"
-      # - "~/docker_compose/docker_fw04_arm/param:/robot/param"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_init:/home/freeway_rev04/src/fw_init"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
+      - "~/docker_compose/docker_rtab_arm/data:/data"
+      - "~/docker_compose/docker_rtab_arm/map:/robot/map"
+      # - "~/docker_compose/docker_rtab_arm/param:/robot/param"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_init:/home/freeway_rev04/src/fw_init"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
     command: ["/bin/zsh", "-c", "source /opt/ros/melodic/setup.zsh; source ~/.zshrc; roslaunch --wait fw_rev_04_rtabmap fw_navigation_stereo_test2_jay_2dlidar.launch grid_size:=50 grid_cellsize:=0.05 rviz:=false rtabmapviz:=false database_path:=/robot/map/globalf4_05.db;"]
 
   fw_navigation:
@@ -200,13 +200,13 @@ services:
     # command: zsh
     volumes:
       - "/dev:/dev"
-      - "~/docker_compose/docker_fw04_arm/data:/data"
-      - "~/docker_compose/docker_fw04_arm/map:/robot/map"
-      # - "~/docker_compose/docker_fw04_arm/param:/robot/param"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_init:/home/freeway_rev04/src/fw_init"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
-      - "~/docker_compose/docker_fw04_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
+      - "~/docker_compose/docker_rtab_arm/data:/data"
+      - "~/docker_compose/docker_rtab_arm/map:/robot/map"
+      # - "~/docker_compose/docker_rtab_arm/param:/robot/param"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_init:/home/freeway_rev04/src/fw_init"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
     command: ["/bin/zsh", "-c", "source /root/.zshrc; roslaunch --wait fw_rev_04_navigation fw_move_base_flex.launch;"]
 
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/aarch64-linux-gnu/tegra
