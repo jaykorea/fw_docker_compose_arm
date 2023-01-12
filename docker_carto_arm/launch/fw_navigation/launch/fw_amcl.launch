@@ -7,6 +7,7 @@
 
   <!-- AMCL -->
   <node pkg="amcl" type="amcl" name="amcl">
+    <remap from="initialpose" to="freeway/initialpose"/>
 
     <param name="min_particles"             value="500"/>
     <param name="max_particles"             value="3000"/>
@@ -42,6 +43,25 @@
     <param name="odom_alpha4"               value="0.1"/>
     <param name="odom_frame_id"             value="odom_combined"/>
     <param name="base_frame_id"             value="base_footprint"/>
-
   </node>
+
+  <node pkg="rf2o_laser_odometry" type="rf2o_laser_odometry_node" name="rf2o_laser_odometry" output="screen">
+    <param name="laser_scan_topic" value="/scan_rp_filtered"/>        
+    <!-- topic where the lidar scans are being published -->
+    <param name="odom_topic" value="/odom_laser" />              
+    <!-- topic where tu publish the odometry estimations -->
+    <param name="publish_tf" value="false" />                   
+    <!-- wheter or not to publish the tf::transform (base->odom) -->
+    <param name="base_frame_id" value="/base_footprint"/>            
+    <!-- frame_id (tf) of the mobile robot base. A tf transform from the laser_frame to the base_frame is mandatory -->
+    <param name="odom_frame_id" value="/odom_laser_frame" />                
+    <!-- frame_id (tf) to publish the odometry estimations     -->
+    <param name="init_pose_from_topic" value="" /> 
+    <!-- (Odom topic) Leave empty to start at point (0,0) -->
+    <param name="freq" value="10.0"/>                            
+    <!-- Execution frequency. -->
+    <param name="verbose" value="false" />                       
+    <!-- verbose -->
+  </node>
+  
 </launch>
