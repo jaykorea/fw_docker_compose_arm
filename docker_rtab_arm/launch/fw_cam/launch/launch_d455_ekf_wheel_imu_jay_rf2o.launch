@@ -2,7 +2,7 @@
 
     <arg name="frame_id"                default="base_footprint" />
     <arg name="imu_topic"               default="/imu/data" />
-    <arg name="imu_ignore_acc"          default="false" />
+    <arg name="imu_ignore_acc"          default="true" />
     <arg name="imu_remove_gravitational_acceleration" default="true" />
     <arg name="boolean"                 default="true"/>
     <arg name="initial_reset"           default="false"/>
@@ -83,10 +83,10 @@
                                       false, false, true,
                                       false, false, false]</rosparam>
 
-      <rosparam param="odom1_config">[false, false, false,
+      <rosparam param="odom1_config">[true, true, false,
+                                      true, true, false,
                                       false, false, false,
-                                      true, true, true,
-                                      false, false, true,
+                                      false, false, false,
                                       false, false, false]</rosparam>
 
       <rosparam     if="$(arg imu_ignore_acc)" param="imu0_config">[false, false, false,
@@ -200,5 +200,24 @@
     </rosparam> -->
     <!-- <param name="/ekf_se/odom0_config" value="{true,true,true,}"/> -->    
     <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="d400_link_to_base_link" args="0.008 -0.0115 0.059 0 0 0 base_link d400_link"/> -->
+
+  <node pkg="rf2o_laser_odometry" type="rf2o_laser_odometry_node" name="rf2o_laser_odometry" output="screen">
+    <param name="laser_scan_topic" value="/scan_rp_filtered"/>        
+    <!-- topic where the lidar scans are being published -->
+    <param name="odom_topic" value="/odom_laser" />              
+    <!-- topic where tu publish the odometry estimations -->
+    <param name="publish_tf" value="false" />                   
+    <!-- wheter or not to publish the tf::transform (base->odom) -->
+    <param name="base_frame_id" value="/base_footprint"/>            
+    <!-- frame_id (tf) of the mobile robot base. A tf transform from the laser_frame to the base_frame is mandatory -->
+    <param name="odom_frame_id" value="/odom_md_frame" />                
+    <!-- frame_id (tf) to publish the odometry estimations     -->
+    <param name="init_pose_from_topic" value="" /> 
+    <!-- (Odom topic) Leave empty to start at point (0,0) -->
+    <param name="freq" value="10.0"/>                            
+    <!-- Execution frequency. -->
+    <param name="verbose" value="false" />                       
+    <!-- verbose -->
+  </node>
 
 </launch>

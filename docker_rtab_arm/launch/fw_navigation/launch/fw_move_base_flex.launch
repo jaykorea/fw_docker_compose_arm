@@ -44,4 +44,5 @@
   <node if="$(arg joy_flag)" pkg="freeway_joy" type="freeway_joy_node" name="freeway_joy_node" output="screen" respawn="false"/>
   <node if="$(arg spk_flag)" pkg="freeway_spk" type="fw_spk_flex.py" name="fw_spk_node" output="screen" respawn="false"/>
   <include if="$(arg smooth_flag)" file="$(find yocs_velocity_smoother)/launch/standalone.launch"/>
+
 </launch>

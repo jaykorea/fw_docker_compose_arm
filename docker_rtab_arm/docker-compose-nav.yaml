@@ -14,7 +14,7 @@ version: "2"
 
 services:
   ros_core:
-    image: jaykor97/freeway:rev.12_arm_jay
+    image: jaykor97/freeway:rev.13_arm_jay
     container_name: ros_core
     hostname: ros_core
     # deploy:
@@ -58,7 +58,7 @@ services:
 
   fw_init:
     # build: ,,
-    image: jaykor97/freeway:rev.12_arm_jay
+    image: jaykor97/freeway:rev.13_arm_jay
     depends_on:
         - ros_core
     # networks:
@@ -88,7 +88,7 @@ services:
 
   fw_cam:
     # build: ,,
-    image: jaykor97/freeway:rev.12_arm_jay
+    image: jaykor97/freeway:rev.13_arm_jay
     depends_on:
         - ros_core
     stdin_open: true # docker run -i
@@ -125,11 +125,11 @@ services:
       - "~/docker_compose/docker_rtab_arm/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
       - "~/docker_compose/docker_rtab_arm/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
       - "~/docker_compose/docker_rtab_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
-    command: ["/bin/zsh", "-c", "source /root/.zshrc; roslaunch --wait fw_rev_04_cam launch_d455_ekf_wheel_imu_jay.launch initial_reset:=false;"]
+    command: ["/bin/zsh", "-c", "source /root/.zshrc; roslaunch --wait fw_rev_04_cam launch_d455_ekf_wheel_imu_jay_rf2o.launch initial_reset:=false;"]
 
   fw_rtabmap:
     # build: ,,
-    image: jaykor97/freeway:rev.12_arm_jay
+    image: jaykor97/freeway:rev.13_arm_jay
     depends_on:
         - ros_core
     # networks:
@@ -170,7 +170,7 @@ services:
 
   fw_navigation:
     # build: ,,
-    image: jaykor97/freeway:rev.12_arm_jay
+    image: jaykor97/freeway:rev.13_arm_jay
     depends_on:
         - ros_core
     stdin_open: true # docker run -i

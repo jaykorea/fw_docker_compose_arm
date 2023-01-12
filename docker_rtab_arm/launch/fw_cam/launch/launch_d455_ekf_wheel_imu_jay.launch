@@ -200,5 +200,5 @@
     </rosparam> -->
     <!-- <param name="/ekf_se/odom0_config" value="{true,true,true,}"/> -->    
     <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="d400_link_to_base_link" args="0.008 -0.0115 0.059 0 0 0 base_link d400_link"/> -->
-
+z
 </launch>
