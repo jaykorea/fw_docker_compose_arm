@@ -9,6 +9,7 @@
         output="screen">
     <remap from="/imu" to="/d455/imu"/>
     <remap from="/scan" to="/scan_rp_filtered" />
+    <remap from="/odom" to="/odometry/filtered"/>
     <!-- <remap from="/scan_2" to="/scan_rp_filtered" /> -->
     <!--remap from="points2" to="/camera/depth/color/points" /-->
   </node>

@@ -6,9 +6,7 @@
   <!-- cartographer_node -->
   <node pkg="cartographer_ros" type="cartographer_node" name="cartographer_node" 
         args="-configuration_directory $(find fw_rev_04_slam)/config
-              -configuration_basename $(arg configuration_basename)
-              -load_state_filename /robot/map/$(arg map_file).pbstream
-              "
+              -configuration_basename $(arg configuration_basename)"
         output="screen">
     <remap from="/imu" to="/d455/imu"/>
     <remap from="/scan" to="/scan_rp_filtered" />

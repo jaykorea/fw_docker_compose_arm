@@ -14,8 +14,8 @@
     <param name="min_particles"             value="500"/>
     <param name="max_particles"             value="10000"/>
     <param name="kld_err"                   value="0.02"/>
-    <param name="update_min_d"              value="0.05"/>
-    <param name="update_min_a"              value="0.05"/>
+    <param name="update_min_d"              value="0.08"/>
+    <param name="update_min_a"              value="0.08"/>
     <param name="resample_interval"         value="2"/>
     <param name="transform_tolerance"       value="0.9"/>
     <param name="recovery_alpha_slow"       value="0.00"/>
@@ -27,6 +27,7 @@
     <param name="use_map_topic"             value="true"/>
 
     <remap from="scan"                      to="$(arg scan_topic)"/>
+    <remap from="odom"                      to="/odometry/filtered"/>
     <param name="laser_min_range"           value="-1"/>
     <param name="laser_max_range"           value="-1"/>
     <param name="laser_max_beams"           value="120"/>
