@@ -5,6 +5,8 @@
 	</include> -->
 	<include file="$(find rplidar_ros)/launch/fw_rp_s2.launch">
 	</include>
+	<!-- <include file="$(find laser_filters)/launch/fw_filter.launch">
+	</include> -->
 	<!-- <include file="$(find ydlidar)/launch/fw_yd.launch">
 	</include> -->
 	<!-- <include file="$(find rplidar_ros)/launch/fw_rp_a1.launch">
@@ -13,7 +15,6 @@
 	</include> -->
 	<!--include file="$(find realsense2_camera)/launch/rs_camera.launch"-->
 	<!--/include-->
-
 	<include file="$(find fw_rev_04_init)/launch/fw_remote.launch">
 	</include>
 </launch>

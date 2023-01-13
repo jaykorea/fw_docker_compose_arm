@@ -33,6 +33,7 @@ class Distance_TimeCalculator
       resume_pub = n->advertise<geometry_msgs::PoseStamped>("move_base_simple/goal", 100);
       cancel_pub = n->advertise<actionlib_msgs::GoalID>("move_base_flex/move_base/cancel", 10);
       cmd_pub = n->advertise<geometry_msgs::Twist>("cmd_vel", 10);
+      pose_pub = n->advertise<geometry_msgs::PoseWithCovarianceStamped>("freeway/initialpose",10);
       cancel_sub = n->subscribe("freeway/goal_cancel", 100, &Distance_TimeCalculator::cancel_cb, this);
       feedback_sub = n->subscribe("move_base_flex/move_base/feedback", 1000, &Distance_TimeCalculator::get_feedback_cb, this);
       status_sub = n->subscribe("move_base_flex/move_base/status", 10, &Distance_TimeCalculator::get_status_cb, this);
@@ -40,6 +41,7 @@ class Distance_TimeCalculator
       getpath_sub = n->subscribe("move_base_flex/TebLocalPlannerROS/global_plan", 10, &Distance_TimeCalculator::get_globalpath_cb, this);
       resume_sub = n->subscribe("freeway/resume",10, &Distance_TimeCalculator::resume_cb, this);
       goal_sub = n->subscribe("move_base_simple/goal", 10, &Distance_TimeCalculator::goal_cb, this);
+      pose_sub = n->subscribe("freeway/localization_pose", 10, &Distance_TimeCalculator::pose_cb, this);
 
       total_vel = 0.0;
       status_flag=0;
@@ -48,6 +50,8 @@ class Distance_TimeCalculator
       current_robot_pose;
       prev_current_robot_pose;
       final_goal;
+      final_pose;
+      final_pose_time;
       move_base_GlobalPlanner_plan_Time=0.0;
       first_global_path_distance=0.0;
       global_path_percentage=0.0;
@@ -179,13 +183,27 @@ void get_feedback_cb(const mbf_msgs::MoveBaseActionFeedback &feedback_msgs){
   }
 }
 
-void check_update_time(double current_time)
+void check_update_time(ros::Time current_time)
 {
-  if ((current_time - move_base_GlobalPlanner_plan_Time) < 2.0) { status_flag=1; }
+  if ((current_time.toSec() - move_base_GlobalPlanner_plan_Time) < 2.0) { status_flag=1; }
   else { status_flag=0; remaining_time = 0.0; msg_global_path_distance=0.0; first_global_path_distance=0.0; traveled_distance=0.0; first_time=0; remaining_percentage=0.0; global_path_flag=false;}
- 
 }
 
+void check_pose_time(ros::Time current_time)
+{
+  if ((current_time.toSec() - final_pose_time.toSec()) > 10.0 && final_pose.header.seq !=0) {
+    final_pose.header.seq=final_pose.header.seq+1;
+    final_pose.header.stamp.sec=current_time.toSec();
+    final_pose.header.stamp.nsec=current_time.toNSec();
+    pose_pub.publish(final_pose);
+    final_pose_time = current_time; 
+    ROS_INFO("set initialpose to last pose");
+    }
+  }
+void pose_cb(const geometry_msgs::PoseWithCovarianceStamped &pose_msgs) {
+  final_pose_time = ros::Time::now();
+  final_pose = pose_msgs;
+}
 double r_msg_global_path_distance()
 {
   return msg_global_path_distance;
@@ -215,6 +233,7 @@ double r_status_info_()
     ros::Publisher resume_pub;
     ros::Publisher cmd_pub;
     ros::Publisher cancel_pub;
+    ros::Publisher pose_pub;
     ros::Subscriber cancel_sub;
     ros::Subscriber feedback_sub;
     ros::Subscriber status_sub;
@@ -222,6 +241,7 @@ double r_status_info_()
     ros::Subscriber getpath_sub;
     ros::Subscriber resume_sub;
     ros::Subscriber goal_sub;
+    ros::Subscriber pose_sub;
 
     float total_vel;
     int status_flag;
@@ -230,7 +250,9 @@ double r_status_info_()
     geometry_msgs::Pose current_robot_pose;
     geometry_msgs::Pose prev_current_robot_pose;
     geometry_msgs::PoseStamped final_goal;
+    geometry_msgs::PoseWithCovarianceStamped final_pose;
     double move_base_GlobalPlanner_plan_Time;
+    ros::Time final_pose_time;
     float first_global_path_distance;
     float global_path_percentage;
     float remaining_time;
@@ -251,11 +273,11 @@ int main(int argc, char **argv)
   Distance_TimeCalculator Dt = Distance_TimeCalculator(&n);
   distancetimecalculator_pub = n.advertise<freeway_msgs::DistanceTimeCalculator>("freeway/distancetimecalculator", 100);
 
-  ros::Rate loop_rate(5);
+  ros::Rate loop_rate(10);
 
   while (ros::ok())
   {
-    double cur_time = ros::Time::now().toSec();
+    ros::Time cur_time = ros::Time::now();
     // ros::master::V_TopicInfo master_topics;
     // ros::master::getTopics(master_topics);
 
@@ -266,6 +288,7 @@ int main(int argc, char **argv)
     // if ((ros::Time::now().toSec() - Dt.move_base_GlobalPlanner_plan_Time) < 2.0) { Dt.status_flag=1; }
     // else { Dt.status_flag=0; Dt.remaining_time = 0.0; Dt.msg_global_path_distance=0.0; Dt.first_global_path_distance=0.0; Dt.traveled_distance=0.0; Dt.first_time=0; Dt.remaining_percentage=0.0; Dt.global_path_flag=false;}
     Dt.check_update_time(cur_time);
+    Dt.check_pose_time(cur_time);
 
     distancetimecalculator_msg.distance_remaining = Dt.r_msg_global_path_distance();
     distancetimecalculator_msg.arrival_time = Dt.r_remaining_time();

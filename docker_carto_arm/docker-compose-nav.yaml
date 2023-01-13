@@ -166,7 +166,7 @@ services:
       - "~/docker_compose/docker_carto_arm/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
       - "~/docker_compose/docker_carto_arm/launch/fw_slam:/home/freeway_rev04/src/fw_slam"
       - "~/docker_compose/docker_carto_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
-    command: ["/bin/zsh", "-c", "source /opt/ros/melodic/setup.zsh; source ~/.zshrc; roslaunch --wait fw_rev_04_navigation fw_navigation_teb.launch map_file:=/robot/map/map.yaml;"]
+    command: ["/bin/zsh", "-c", "source /opt/ros/melodic/setup.zsh; source ~/.zshrc; roslaunch --wait fw_rev_04_slam fw_slam_nav.launch;"]
 
   fw_navigation_carto:
     # build: ,,

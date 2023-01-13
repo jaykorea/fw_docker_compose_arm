@@ -375,7 +375,7 @@ Visualization Manager:
           Topic: /move_base/TebLocalPlannerROS/local_plan
           Unreliable: false
           Value: true
-      Enabled: true
+      Enabled: false
       Name: Local Map
     - Alpha: 1
       Arrow Length: 0.05000000074505806
@@ -448,13 +448,13 @@ Visualization Manager:
       Unreliable: false
       Value: false
     - Class: rviz/Marker
-      Enabled: true
+      Enabled: false
       Marker Topic: /move_base_flex/TebLocalPlannerROS/teb_markers
       Name: Marker
       Namespaces:
         {}
       Queue Size: 100
-      Value: true
+      Value: false
     - Alpha: 1
       Arrow Length: 0.30000001192092896
       Axes Length: 0.30000001192092896
@@ -663,16 +663,16 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 13.463976860046387
+      Distance: 12.890668869018555
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -2.081157922744751
-        Y: 2.4961416721343994
-        Z: 1.1920928955078125e-7
+        X: -3.1859121322631836
+        Y: 1.0469074249267578
+        Z: -1.4984598237788305e-6
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
@@ -681,7 +681,7 @@ Visualization Manager:
       Pitch: 1.5697963237762451
       Target Frame: <Fixed Frame>
       Value: XYOrbit (rviz)
-      Yaw: 2.825378179550171
+      Yaw: 3.17537784576416
     Saved: ~
 Window Geometry:
   Displays:
@@ -701,5 +701,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1280
-  X: 65
-  Y: 31
+  X: 468
+  Y: 35

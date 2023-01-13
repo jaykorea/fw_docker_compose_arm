@@ -9,6 +9,8 @@
     <arg name="enable_infra1"		default="false" />
     <arg name="enable_infra2"		default="false" /> 
 
+    <!-- <include file="$(find fw_rev_04_cam)/launch/pose_fusion.launch"/> -->
+
     <include file="$(find realsense2_camera)/launch/d400.launch">
       <arg name="camera" value="d455"/>
       <arg name="serial_no_camera" value="035622250959"/>
@@ -59,7 +61,7 @@
     </node>
 
         <!-- Odometry fusion (EKF), refer to demo launch file in robot_localization for more info -->
-    <node if="$(arg boolean)" pkg="robot_localization" type="ekf_localization_node" name="ekf_localization" clear_params="true" required="true" output="screen">
+    <node if="$(arg boolean)" pkg="robot_localization" type="ekf_localization_node" name="ekf_localization1" clear_params="true" required="true" output="screen">
 
       <param name="frequency" value="50"/>
       <param name="sensor_timeout" value="0.1"/>

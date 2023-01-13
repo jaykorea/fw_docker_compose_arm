@@ -125,7 +125,7 @@ services:
       - "~/docker_compose/docker_rtab_arm/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
       - "~/docker_compose/docker_rtab_arm/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
       - "~/docker_compose/docker_rtab_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
-    command: ["/bin/zsh", "-c", "source /root/.zshrc; roslaunch --wait fw_rev_04_cam launch_d455_ekf_wheel_imu_jay_rf2o.launch initial_reset:=false;"]
+    command: ["/bin/zsh", "-c", "source /root/.zshrc; roslaunch --wait fw_rev_04_cam launch_d455_ekf_wheel_imu_jay.launch initial_reset:=false;"]
 
   fw_rtabmap:
     # build: ,,
