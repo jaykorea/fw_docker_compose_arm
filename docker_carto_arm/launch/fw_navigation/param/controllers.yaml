@@ -17,7 +17,7 @@ TebLocalPlannerROS:
   # Trajectory
    
   teb_autosize: True
-  dt_ref: 0.35
+  dt_ref: 0.3
   dt_hysteresis: 0.11 # default: 0.11
   #min_samples: 3
   global_plan_overwrite_orientation: true # defualt : true
@@ -28,13 +28,13 @@ TebLocalPlannerROS:
  
   # Robot
           
-  max_vel_x: 0.85 # default 0.25
+  max_vel_x: 0.55 # default 0.25
   max_vel_y: 0 # default 0.25
   max_vel_x_backwards: 0.25
   max_vel_theta: 0.8 # default 0.45
   acc_lim_x: 0.15 # default 0.5
   acc_lim_y: 0
-  acc_lim_theta: 0.4 # default : 0.4
+  acc_lim_theta: 0.25 # default : 0.4
   min_turning_radius: 0
   footprint_model:   # types: "point", "circular", "two_circles", "line", "polygon"
    type: "point" #"line"
@@ -130,8 +130,8 @@ TebLocalPlannerROS:
   obstacle_proximity_upper_bound: 0.5
 
   # Optimization
-  no_inner_iterations: 5
-  no_outer_iterations: 4
+  no_inner_iterations: 4
+  no_outer_iterations: 3
   optimization_activate: True
   optimization_verbose: False
   penalty_epsilon: 0.11
@@ -146,8 +146,8 @@ TebLocalPlannerROS:
   weight_optimaltime: 1
   weight_obstacle: 50
   weight_velocity_obstacle_ratio: 0.0
-  weight_viapoint: 50.0          #10
-  weight_dynamic_obstacle: 10 # not in use yet
+  weight_viapoint: 100.0          #10
+  weight_dynamic_obstacle: 0.1 # not in use yet
   weight_dynamic_obstacle_inflation: 0.2
   weight_adapt_factor: 2.0
   #obstacle_cost_exponent: 4.0

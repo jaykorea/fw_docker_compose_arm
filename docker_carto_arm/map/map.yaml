@@ -1,4 +1,4 @@
-image: /home/freeway/docker_compose/docker_carto_arm/map/map.pgm
+image: /robot/map/map.pgm
 resolution: 0.050000
 origin: [-3.403158, -9.833147, 0.000000]
 negate: 0
