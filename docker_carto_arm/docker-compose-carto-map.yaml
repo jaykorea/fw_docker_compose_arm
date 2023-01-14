@@ -167,7 +167,7 @@ services:
       - "~/docker_compose/docker_carto_arm/launch/fw_slam:/home/freeway_rev04/src/fw_slam"
       # - "~/docker_compose/docker_carto_arm/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
       - "~/docker_compose/docker_carto_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
-    command: ["/bin/zsh", "-c", "source /opt/ros/melodic/setup.zsh; source ~/.zshrc; roslaunch --wait fw_rev_04_slam fw_slam_map.launch;"]
+    command: ["/bin/zsh", "-c", "source /opt/ros/melodic/setup.zsh; source ~/.zshrc; roslaunch --wait fw_rev_04_slam fw_slam_carto_map.launch;"]
 
   # fw_navigation:
   #   # build: ,,
