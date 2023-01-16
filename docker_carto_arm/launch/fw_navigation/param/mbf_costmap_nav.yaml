@@ -7,8 +7,8 @@ force_stop_at_goal: true # force move base flex to stop the robot once the goal 
 force_stop_on_cancel: true # force move base flex to stop the robot on navigation cancellation
 force_stop_on_retry: true
 mbf_tolerance_check: true # force move base flex to check for the goal tolerance
-dist_tolerance: 0.1 # distance tolerance to the given goal pose
-angle_tolerance: 0.2 # angle tolerance to the given goal pose
+dist_tolerance: 0.15 # distance tolerance to the given goal pose
+angle_tolerance: 0.15 # angle tolerance to the given goal pose
 tf_timeout: 1 # time before a timeout used for tf requests
 
 #################################################
@@ -37,7 +37,7 @@ controllers: # list of controller, e.g. eband_local_planner/EBandPlannerROS
   # - name: MpcLocalPlannerROS
   #   type: mpc_local_planner/MpcLocalPlannerROS
 
-controller_frequency: 13.0 # the rate in Hz at which to run the control loop and send velocity commands to the base
+controller_frequency: 12.0 # the rate in Hz at which to run the control loop and send velocity commands to the base
 controller_max_retries: -1 # how many times we will recall the controller in an attempt to find a valid command before giving up
 controller_patience: 0.0 # how long the controller will wait in seconds without receiving a valid control before giving up
 

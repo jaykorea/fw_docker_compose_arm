@@ -630,14 +630,14 @@
   </group>
 
   <node unless="$(arg multi_rgbd_)" pkg="nodelet" type="nodelet" name="points_xyzrgb" args="standalone rtabmap_ros/point_cloud_xyzrgb" clear_params="$(arg clear_params)" output="$(arg output)">
-    <remap if="$(arg stereo)" from="left/image"        to="$(arg left_image_topic_relay)"/>
+    <!-- <remap if="$(arg stereo)" from="left/image"        to="$(arg left_image_topic_relay)"/>
     <remap if="$(arg stereo)" from="right/image"       to="$(arg right_image_topic_relay)"/>
     <remap if="$(arg stereo)" from="left/camera_info"  to="$(arg left_camera_info_topic)"/>
     <remap if="$(arg stereo)" from="right/camera_info" to="$(arg right_camera_info_topic)"/>
     <remap unless="$(arg subscribe_rgbd)" from="rgb/image"         to="$(arg rgb_topic_relay)"/>
     <remap unless="$(arg subscribe_rgbd)" from="depth/image"       to="$(arg depth_topic_relay)"/> 
-    <remap unless="$(arg subscribe_rgbd)" from="rgb/camera_info"   to="$(arg camera_info_topic)"/>
-    <remap from="rgbd_image"        to="$(arg rgbd_topic_relay)"/>
+    <remap unless="$(arg subscribe_rgbd)" from="rgb/camera_info"   to="$(arg camera_info_topic)"/> -->
+    <remap from="rgbd_image"        to="/camera/rgbd_image"/> <!-- $(arg rgbd_topic_relay) -->
     <remap from="cloud"             to="voxel_cloud" />
 
     <param name="decimation"  type="double" value="3"/>

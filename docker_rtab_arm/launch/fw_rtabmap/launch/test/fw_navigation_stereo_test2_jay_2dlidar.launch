@@ -50,7 +50,15 @@
       <param name="approx"          value="false"/>
     </node>
    </group>
-
+   <group unless="$(arg multi_rgbd_)" ns="camera">
+    <node pkg="nodelet" type="nodelet" name="nodelet_manager1" args="manager"/>
+    <node pkg="nodelet" type="nodelet" name="rgbd_sync1" args="load rtabmap_ros/rgbd_sync nodelet_manager1">
+        <remap from="rgb/image"       to="/d455/color/image_raw"/>
+        <remap from="depth/image"     to="/d455/aligned_depth_to_color/image_raw"/>
+        <remap from="rgb/camera_info" to="/d455/color/camera_info"/>
+      <param name="approx"          value="false"/>
+    </node>
+   </group>
 <!-- <node pkg = "rtabmap_ros" type="rtabmap" name="rtabmap" args="-d">
   <param name="ground_truth_frame_id" value=""/>
   <param name="ground_truth_base_frame_id" value=""/>
