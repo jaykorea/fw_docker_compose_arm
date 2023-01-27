@@ -211,7 +211,7 @@ services:
 
   fw_bt_carto:
     # build: ,,
-    image: jaykor97/freeway:rev.12_arm_jay_carto
+    image: jaykor97/freeway:rev.13_arm_jay
     depends_on:
         - ros_core_carto
     stdin_open: true # docker run -i
@@ -241,14 +241,14 @@ services:
     # command: zsh
     volumes:
       - "/dev:/dev"
-      - "~/docker_compose/docker_carto_arm/data:/data"
-      - "~/docker_compose/docker_carto_arm/map:/robot/map"
+      - "~/docker_compose/docker_rtab_arm/data:/data"
+      - "~/docker_compose/docker_rtab_arm/map:/robot/map"
       # - "~/docker_compose/docker_carto_arm/param:/robot/param"
-      - "~/docker_compose/docker_carto_arm/launch/fw_init:/home/freeway_rev04/src/fw_init"
-      - "~/docker_compose/docker_carto_arm/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_init:/home/freeway_rev04/src/fw_init"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
       # - "~/docker_compose/docker_carto_arm/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
-      - "~/docker_compose/docker_carto_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
-      - "~/docker_compose/docker_carto_arm/launch/fw_bt:/home/freeway_rev04/src/fw_bt"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
+      - "~/docker_compose/docker_rtab_arm/launch/fw_bt:/home/freeway_rev04/src/fw_bt"
     command: ["/bin/zsh", "-c", "source /root/.zshrc; roslaunch --wait fw_bt bt_sample.launch;"]
 
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/aarch64-linux-gnu/tegra
