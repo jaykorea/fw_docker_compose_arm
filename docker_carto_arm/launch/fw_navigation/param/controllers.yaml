@@ -56,7 +56,7 @@ TebLocalPlannerROS:
   free_goal_vel: False
   complete_global_plan: true
   divergence_detection_enable: true
-  divergence_detection_max_chi_squared: 100
+  divergence_detection_max_chi_squared: 70
  
   exact_arc_length: false
   control_look_ahead_poses: 2

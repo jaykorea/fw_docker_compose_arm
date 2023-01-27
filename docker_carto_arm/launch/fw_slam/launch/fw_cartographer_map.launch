@@ -7,7 +7,7 @@
         args="-configuration_directory $(find fw_rev_04_slam)/config
               -configuration_basename $(arg configuration_basename)"
         output="screen">
-    <remap from="/imu" to="/d455/imu"/>
+    <remap from="/imu" to="/imu/data"/>
     <remap from="/scan" to="/scan_rp_filtered" />
     <remap from="/odom" to="/odometry/filtered"/>
     <!-- <remap from="/scan_2" to="/scan_rp_filtered" /> -->
