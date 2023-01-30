@@ -156,6 +156,9 @@ services:
       - "XAUTHORITY=/tmp/.docker.xauth"
       # - "ROS_HOSTNAME=ros_core_carto"
       - "ROS_MASTER_URI=http://192.168.0.9:11311"
+      - "MAP_TYPE=$MAP_TYPE"
+      - "MAP_FILE=$MAP_FILE"
+      - "MAP_MODE=$MAP_MODE"
     # command: zsh
     volumes:
       - "/dev:/dev"
@@ -166,7 +169,7 @@ services:
       - "~/docker_compose/docker_carto_arm/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
       - "~/docker_compose/docker_carto_arm/launch/fw_slam:/home/freeway_rev04/src/fw_slam"
       - "~/docker_compose/docker_carto_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
-    command: ["/bin/zsh", "-c", "source /opt/ros/melodic/setup.zsh; source ~/.zshrc; roslaunch --wait fw_rev_04_navigation fw_navigation_carto.launch map_file:=/robot/map/carto.yaml;"]
+    command: ["/bin/zsh", "-c", "source /opt/ros/melodic/setup.zsh; source ~/.zshrc; roslaunch --wait fw_rev_04_navigation fw_navigation_carto.launch map_file:=/robot/map/${MAP_FILE}.yaml;"]
 
   fw_navigation_carto:
     # build: ,,
