@@ -56,7 +56,7 @@ services:
     # ipc: host
     #restart: always
 
-  fw_init:
+  fw_init_rtab:
     # build: ,,
     image: jaykor97/freeway:rev.13_arm_jay
     depends_on:
@@ -86,7 +86,7 @@ services:
       - "~/docker_compose/docker_rtab_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
     command: ["/bin/zsh", "-c", "source /root/.zshrc; roslaunch --wait fw_rev_04_init fw_robot.launch;"]
 
-  fw_cam:
+  fw_cam_rtab:
     # build: ,,
     image: jaykor97/freeway:rev.13_arm_jay
     depends_on:
@@ -171,7 +171,7 @@ services:
       - "~/docker_compose/docker_rtab_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
     command: ["/bin/zsh", "-c", "source /opt/ros/melodic/setup.zsh; source ~/.zshrc; roslaunch --wait fw_rev_04_rtabmap fw_navigation_stereo_test2_jay_2dlidar.launch grid_size:=50 grid_cellsize:=0.05 rviz:=false rtabmapviz:=false database_path:=/robot/map/${MAP_FILE}.db;"]
 
-  fw_navigation:
+  fw_navigation_rtab:
     # build: ,,
     image: jaykor97/freeway:rev.13_arm_jay
     depends_on:
@@ -212,7 +212,7 @@ services:
       - "~/docker_compose/docker_rtab_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
     command: ["/bin/zsh", "-c", "source /root/.zshrc; roslaunch --wait fw_rev_04_navigation fw_move_base_flex.launch;"]
 
-  fw_bt_carto:
+  fw_bt_rtab:
     # build: ,,
     image: jaykor97/freeway:rev.13_arm_jay
     depends_on:

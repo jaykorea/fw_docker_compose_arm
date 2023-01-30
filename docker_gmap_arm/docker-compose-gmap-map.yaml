@@ -56,7 +56,7 @@ services:
     # ipc: host
     #restart: always
 
-  fw_init_carto:
+  fw_init_gmap:
     # build: ,,
     image: jaykor97/freeway:rev.12_arm_jay_carto
     depends_on:
@@ -86,7 +86,7 @@ services:
       - "~/docker_compose/docker_gmap_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
     command: ["/bin/zsh", "-c", "source /root/.zshrc; roslaunch --wait fw_rev_04_init fw_robot.launch;"]
 
-  fw_cam_carto:
+  fw_cam_gmap:
     # build: ,,
     image: jaykor97/freeway:rev.12_arm_jay_carto
     depends_on:
@@ -127,7 +127,7 @@ services:
       - "~/docker_compose/docker_gmap_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
     command: ["/bin/zsh", "-c", "source /root/.zshrc; roslaunch --wait fw_rev_04_cam launch_d455_ekf_wheel_imu_jay_carto.launch initial_reset:=false;"]
 
-  fw_carto:
+  fw_gmap:
     # build: ,,
     image: jaykor97/freeway:rev.12_arm_jay_carto
     depends_on:
