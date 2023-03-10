@@ -14,7 +14,7 @@ version: "2"
 
 services:
   ros_core_carto:
-    image: jaykor97/freeway:rev.12_arm_jay_carto
+    image: jaykor97/freeway:rev.13_arm_jay_carto
     container_name: ros_core_carto
     hostname: ros_core_carto
     # deploy:
@@ -58,7 +58,7 @@ services:
 
   fw_init_carto:
     # build: ,,
-    image: jaykor97/freeway:rev.12_arm_jay_carto
+    image: jaykor97/freeway:rev.13_arm_jay_carto
     depends_on:
         - ros_core_carto
     # networks:
@@ -88,7 +88,7 @@ services:
 
   fw_cam_carto:
     # build: ,,
-    image: jaykor97/freeway:rev.12_arm_jay_carto
+    image: jaykor97/freeway:rev.13_arm_jay_carto
     depends_on:
         - ros_core_carto
     stdin_open: true # docker run -i
@@ -129,7 +129,7 @@ services:
 
   fw_carto:
     # build: ,,
-    image: jaykor97/freeway:rev.12_arm_jay_carto
+    image: jaykor97/freeway:rev.13_arm_jay_carto
     depends_on:
         - ros_core_carto
     # networks:
@@ -171,7 +171,7 @@ services:
 
   # fw_navigation:
   #   # build: ,,
-  #   image: jaykor97/freeway:rev.12_arm_jay_carto
+  #   image: jaykor97/freeway:rev.13_arm_jay_carto
   #   depends_on:
   #       - ros_core_carto
   #   stdin_open: true # docker run -i

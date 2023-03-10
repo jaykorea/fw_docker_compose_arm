@@ -1,6 +1,8 @@
 planners:
-  - name: 'GlobalPlanner'
-    type: 'global_planner/GlobalPlanner'
+  # - name: 'GlobalPlanner'
+  #   type: 'global_planner/GlobalPlanner'
+  - name: 'GlobalPlannerAdapter'
+    type: 'nav_core_adapter::GlobalPlannerAdapter'
 
 planner_patience: 0.0
 GlobalPlanner:
@@ -11,6 +13,20 @@ GlobalPlanner:
   use_quadratic: true
   use_grid_path: false
   old_navfn_behaviour: false
-  lethal_cost: 190
+  lethal_cost: 253
   neutral_cost: 66
   cost_factor: 0.55
+
+GlobalPlannerAdapter:
+  planner_name: dlux_global_planner::DluxGlobalPlanner
+
+DluxGlobalPlanner:
+  potential_calculator: dlux_plugins::AStar
+  traceback: dlux_plugins::GradientPath
+  publish_potential: False
+  print_statistics: False
+  neutral_cost: 66
+  scale: 3
+  unkown_interpretation: "lethal" # lethal, expensive, free 
+  path_caching: False
+  improvement_threshold: -1.0
