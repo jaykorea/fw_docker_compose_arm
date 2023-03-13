@@ -195,35 +195,35 @@ DWBLocalPlanner:
 
   global_frame_id: "odom_combined" #(string, default: "odom")
 
-  max_vel_x: 0.5
+  max_vel_x: 0.6
   min_vel_x: 0.0
 
   max_vel_y: 0.0
   min_vel_y: 0.0
 
-  max_speed_xy: 0.6
+  max_speed_xy: 0.65
   min_speed_xy: 0.1
 
   max_vel_theta: 0.6
-  min_speed_theta: 0.4
+  min_speed_theta: 0.3
 
-  acc_lim_x: 0.1
+  acc_lim_x: 0.08
   acc_lim_y: 0.0
   acc_lim_theta: 0.4
   decel_lim_x: -0.1
   decel_lim_y: 0.0
   decel_lim_theta: -0.4
 
-  xy_goal_tolerance: 0.15
-  yaw_goal_tolerance: 0.2
+  xy_goal_tolerance: 0.25
+  yaw_goal_tolerance: 0.25
 
   split_path: true
 
   trajectory_generator_name: dwb_plugins::StandardTrajectoryGenerator #dwb_plugins::LimitedAccelGenerator , sim_time : 1.7 StandardTrajectoryGenerator
-  sim_time: 2
+  sim_time: 1.4
   vx_samples: 25
   vy_samples: 1      
-  vtheta_samples: 15
+  vtheta_samples: 20
   discretize_by_time: false
   angular_granularity: 0.025
   linear_granularity: 0.05
@@ -235,16 +235,16 @@ DWBLocalPlanner:
 #, ObstacleFootprint
   critics: [RotateToGoal, Oscillation, BaseObstacle, PathAlign, PathDist, GoalAlign, GoalDist]
   RotateToGoal:
-    # scale: 32
-    slowing_factor: 1.75
+    scale: 100.0
+    slowing_factor: 5.0
     lookahead_time: -1.0
   Oscillation:
     x_only_threshold: 0.05
-    oscillation_reset_dist: 0.05
+    oscillation_reset_dist: 0.1
     oscillation_reset_angle: 0.2
     oscillation_reset_time: 1.5
   BaseObstacle:
-    scale: 0.05
+    scale: 0.01
   # ObstacleFootprint: 
   #   footprint: [[-0.345, -0.245], [-0.345, 0.245], [0.265, 0.245], [0.265, -0.245]]
   #   scale: 0.01
@@ -253,15 +253,14 @@ DWBLocalPlanner:
   #   sum_scores: false
   PathAlign:
     scale: 32.0
-    forward_point_distance: 0.325
+    forward_point_distance: 0.1
   PathDist:
     scale: 32.0
   GoalAlign:
-    forward_point_distance: 0.325
+    forward_point_distance: 0.1
     scale: 24.0
   GoalDist:
-    forward_point_distance: 0.325
-    scale: 12.0
+    scale: 24.0
 
   publish_frequency: 5
   publish_cost_grid_pc: true

@@ -28,5 +28,5 @@ DluxGlobalPlanner:
   neutral_cost: 66
   scale: 3
   unkown_interpretation: "lethal" # lethal, expensive, free 
-  path_caching: False
-  improvement_threshold: -1.0
+  path_caching: true
+  improvement_threshold: 1
