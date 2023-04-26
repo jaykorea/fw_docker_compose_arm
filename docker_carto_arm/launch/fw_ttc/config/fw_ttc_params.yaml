@@ -1,0 +1,8 @@
+scan_topic: "scan_rp_filtered"
+rp_lidar_s2: true
+obstalce_count: 15
+signal_distance: 0.2
+signal_distance_teb: 0.25
+signal_release: 0.35
+angle_min: -1.623 # should correspond to the akusense driver launch parameter setting.
+angle_max: 1.623 # should correspond to the akusense driver launch parameter setting.

@@ -31,9 +31,9 @@ services:
       # - "DISPLAY=$DISPLAY"
       # - "QT_X11_NO_MITSHM=1"
       # - "XAUTHORITY=/tmp/.docker.xauth"
-      # - "ROS_HOSTNAME=ros_core_carto"
-      - "ROS_IP=192.168.0.9"
-      - "ROS_MASTER_URI=http://192.168.0.9:11311"
+      - "ROS_HOSTNAME=192.168.2.3"
+      # - "ROS_IP=192.168.2.3"
+      - "ROS_MASTER_URI=http://192.168.2.3:11311"
     volumes:
       - "/dev:/dev"
       - "~/docker_compose/docker_carto_arm/data:/data"
@@ -49,7 +49,7 @@ services:
     command: ["/bin/zsh", "-c", "source /opt/ros/melodic/setup.zsh; source ~/.zshrc; roscore;"]
     # networks:
     #   ros_net:
-    #     ipv4_address: 192.168.0.9
+    #     ipv4_address: 192.168.2.3
         # my-net:
       #   ipv4_address: 192.168.0.10
     network_mode: host
@@ -72,8 +72,8 @@ services:
     tty: true        # docker run -t
     privileged: true
     environment:
-        #- "ROS_IP=192.168.0.9"
-        - "ROS_MASTER_URI=http://192.168.0.9:11311"
+      - "ROS_HOSTNAME=192.168.2.3"
+      - "ROS_MASTER_URI=http://192.168.2.3:11311"
     # command: zsh
     volumes:
       - "/dev:/dev"
@@ -113,8 +113,8 @@ services:
       - "DISPLAY=$DISPLAY"
       - "QT_X11_NO_MITSHM=1"
       - "XAUTHORITY=/tmp/.docker.xauth"
-      # - "ROS_HOSTNAME=ros_core_carto"
-      - "ROS_MASTER_URI=http://192.168.0.9:11311"
+      - "ROS_HOSTNAME=192.168.2.3"
+      - "ROS_MASTER_URI=http://192.168.2.3:11311"
     # command: zsh
     volumes:
       - "/dev:/dev"
@@ -125,7 +125,7 @@ services:
       - "~/docker_compose/docker_carto_arm/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
       # - "~/docker_compose/docker_carto_arm/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
       - "~/docker_compose/docker_carto_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
-    command: ["/bin/zsh", "-c", "source /root/.zshrc; roslaunch --wait fw_rev_04_cam launch_d455_ekf_wheel_imu_jay_carto.launch initial_reset:=false;"]
+    command: ["/bin/zsh", "-c", "source /root/.zshrc; roslaunch --wait fw_rev_04_cam launch_d455_ekf_wheel_imu_jay.launch initial_reset:=false;"]
 
   fw_carto:
     # build: ,,
@@ -154,8 +154,8 @@ services:
       - "DISPLAY=$DISPLAY"
       - "QT_X11_NO_MITSHM=1"
       - "XAUTHORITY=/tmp/.docker.xauth"
-      # - "ROS_HOSTNAME=ros_core_carto"
-      - "ROS_MASTER_URI=http://192.168.0.9:11311"
+      - "ROS_HOSTNAME=192.168.2.3"
+      - "ROS_MASTER_URI=http://192.168.2.3:11311"
       - "MAP_TYPE=$MAP_TYPE"
       - "MAP_FILE=$MAP_FILE"
       - "MAP_MODE=$MAP_MODE"
@@ -169,7 +169,7 @@ services:
       - "~/docker_compose/docker_carto_arm/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
       - "~/docker_compose/docker_carto_arm/launch/fw_slam:/home/freeway_rev04/src/fw_slam"
       - "~/docker_compose/docker_carto_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
-    command: ["/bin/zsh", "-c", "source /opt/ros/melodic/setup.zsh; source ~/.zshrc; roslaunch --wait fw_rev_04_navigation fw_navigation_carto.launch map_file:=/robot/map/${MAP_FILE}.yaml;"]
+    command: ["/bin/zsh", "-c", "source /opt/ros/melodic/setup.zsh; source ~/.zshrc; roslaunch --wait fw_rev_04_navigation fw_navigation_carto.launch map_file:=/robot/map/${MAP_FILE}.yaml map_file_raw:=/robot/map/${MAP_FILE}_raw.yaml;"]
 
   fw_navigation_carto:
     # build: ,,
@@ -198,8 +198,8 @@ services:
       - "DISPLAY=$DISPLAY"
       - "QT_X11_NO_MITSHM=1"
       - "XAUTHORITY=/tmp/.docker.xauth"
-      # - "ROS_HOSTNAME=ros_core_carto"
-      - "ROS_MASTER_URI=http://192.168.0.9:11311"
+      - "ROS_HOSTNAME=192.168.2.3"
+      - "ROS_MASTER_URI=http://192.168.2.3:11311"
     # command: zsh
     volumes:
       - "/dev:/dev"
@@ -208,7 +208,7 @@ services:
       # - "~/docker_compose/docker_carto_arm/param:/robot/param"
       - "~/docker_compose/docker_carto_arm/launch/fw_init:/home/freeway_rev04/src/fw_init"
       - "~/docker_compose/docker_carto_arm/launch/fw_cam:/home/freeway_rev04/src/fw_cam"
-      # - "~/docker_compose/docker_carto_arm/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
+      - "~/docker_compose/docker_carto_arm/launch/fw_ttc:/home/freeway_rev04/src/fw_ttc"
       - "~/docker_compose/docker_carto_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
     command: ["/bin/zsh", "-c", "source /root/.zshrc; roslaunch --wait fw_rev_04_navigation fw_move_base_flex.launch;"]
 
@@ -239,8 +239,8 @@ services:
       - "DISPLAY=$DISPLAY"
       - "QT_X11_NO_MITSHM=1"
       - "XAUTHORITY=/tmp/.docker.xauth"
-      # - "ROS_HOSTNAME=ros_core_carto"
-      - "ROS_MASTER_URI=http://192.168.0.9:11311"
+      - "ROS_HOSTNAME=192.168.2.3"
+      - "ROS_MASTER_URI=http://192.168.2.3:11311"
     # command: zsh
     volumes:
       - "/dev:/dev"

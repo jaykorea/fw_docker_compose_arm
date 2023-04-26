@@ -21,12 +21,12 @@ GlobalPlannerAdapter:
   planner_name: dlux_global_planner::DluxGlobalPlanner
 
 DluxGlobalPlanner:
-  potential_calculator: dlux_plugins::AStar
+  potential_calculator: dlux_plugins::AStar # AStar Dijkstra
   traceback: dlux_plugins::GradientPath
-  publish_potential: False
-  print_statistics: False
+  publish_potential: false
+  print_statistics: true
   neutral_cost: 66
   scale: 3
   unkown_interpretation: "lethal" # lethal, expensive, free 
   path_caching: true
-  improvement_threshold: 1
+  improvement_threshold: 0
