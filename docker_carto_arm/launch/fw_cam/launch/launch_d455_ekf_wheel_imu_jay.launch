@@ -4,12 +4,13 @@
     <arg name="imu_topic"               default="/imu/data/cov_adj" />
     <arg name="imu_ignore_acc"          default="false" />
     <arg name="imu_remove_gravitational_acceleration" default="true" />
-    <arg name="boolean"                 default="true"/>
+    <arg name="boolean"                 default="false"/>
     <arg name="initial_reset"           default="false"/>
     <arg name="enable_infra1"		default="false" />
-    <arg name="enable_infra2"		default="false" /> 
+    <arg name="enable_infra2"		default="false" />
+    <arg name="d455_camera_on"  default="true" />
 
-    <include file="$(find realsense2_camera)/launch/d400.launch">
+    <include if="$(arg d455_camera_on)" file="$(find realsense2_camera)/launch/d400.launch">
       <arg name="camera" value="d455"/>
       <arg name="serial_no_camera" value="035622250959"/>
       <arg name="initial_reset" value="$(arg initial_reset)"/>
@@ -25,6 +26,11 @@
       <arg name="publish_tf"    value="false"/>
       <arg name="enable_infra1" value="$(arg enable_infra1)"/>
       <arg name="enable_infra2" value="$(arg enable_infra2)"/>
+      <arg name="color_width"   value="424"/>
+      <arg name="color_height"  value="240"/>
+      <arg name="depth_width"   value="424"/>
+      <arg name="depth_height"  value="240"/>
+      <arg name="filter_method" value="pointcloud,temporal,decimation,spatial,disparity"/>
       
       <!-- <arg name="filters" value="disparity,spatial,temporal,decimation"/> -->
     </include>
@@ -51,7 +57,7 @@
       <arg name="filters" value="disparity,spatial,temporal,decimation"/>
     </include>     -->
 
-    <node pkg="imu_filter_madgwick" type="imu_filter_node" name="ImuFilter">
+    <node if="$(arg d455_camera_on)" pkg="imu_filter_madgwick" type="imu_filter_node" name="ImuFilter">
         <param name="use_mag" type="bool" value="false" />
         <param name="publish_tf" type="bool" value="false" />
         <param name="world_frame" type="string" value="enu" />

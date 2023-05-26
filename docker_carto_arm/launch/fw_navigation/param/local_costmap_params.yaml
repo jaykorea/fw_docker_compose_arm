@@ -1,5 +1,5 @@
 local_costmap:
-  global_frame: odom_combined
+  global_frame: odom_md_frame # odom_combined
   robot_base_frame: base_footprint
 
   update_frequency: 15.001 # default : 10.0
@@ -20,5 +20,6 @@ local_costmap:
        - {name: static_layer, type: "costmap_2d::StaticLayer"}
       #  - {name: obstacle_3d_layer, type: "spatio_temporal_voxel_layer/SpatioTemporalVoxelLayer"}
        - {name: obstacle_2d_layer, type: "costmap_2d::ObstacleLayer"}
-       - {name: obstacle_3d_layer2, type: "costmap_2d::ObstacleLayer"}
+      #  - {name: sonar_layer,   type: "range_sensor_layer::RangeSensorLayer"}
+      # - {name: obstacle_3d_layer2, type: "costmap_2d::ObstacleLayer"}
        - {name: local_inflation_layer, type: "costmap_2d::InflationLayer"}

@@ -24,7 +24,7 @@ DluxGlobalPlanner:
   potential_calculator: dlux_plugins::AStar # AStar Dijkstra
   traceback: dlux_plugins::GradientPath
   publish_potential: false
-  print_statistics: true
+  print_statistics: false
   neutral_cost: 66
   scale: 3
   unkown_interpretation: "lethal" # lethal, expensive, free 

@@ -42,11 +42,11 @@
     <param name="laser_model_type"          value="likelihood_field"/>
 
     <param name="odom_model_type"           value="diff-corrected"/> <!--diff-->
-    <param name="odom_alpha1"               value="0.04"/> <!--0.02-->
-    <param name="odom_alpha2"               value="0.04"/> <!--0.02-->
-    <param name="odom_alpha3"               value="0.02"/> <!--0.01-->
-    <param name="odom_alpha4"               value="0.02"/> <!--0.01-->
-    <param name="odom_frame_id"             value="odom_combined"/>
+    <param name="odom_alpha1"               value="0.025"/> <!--0.02-->
+    <param name="odom_alpha2"               value="0.025"/> <!--0.02-->
+    <param name="odom_alpha3"               value="0.015"/> <!--0.01-->
+    <param name="odom_alpha4"               value="0.015"/> <!--0.01-->
+    <param name="odom_frame_id"             value="odom_md_frame"/>
     <param name="base_frame_id"             value="base_footprint"/>
   </node>
 
