@@ -4,6 +4,7 @@
   <arg name="mux_flag" default="true"/>
   <arg name="joy_flag" default="true"/>
   <arg name="ttc_flag" default="true"/>
+  <arg name="semi_flag" default="false"/>
 
 	<include file="$(find md)/launch/md.launch">
 	</include>
@@ -43,8 +44,13 @@
 
 	<node if="$(arg serial_flag)" pkg="rosserial_python" type="serial_node.py" name="serial_node" output="screen">
       <param name="port"	value="/dev/STMJOY" />
-      <param name="baud"	value="115200" />
+      <param name="baud"	value="57600" />
     </node>
 
-	<node if="$(arg joy_flag)" pkg="freeway_joy" type="freeway_joy_node" name="freeway_joy_node" output="screen" respawn="false"/>
+	<node if="$(arg joy_flag)" pkg="freeway_joy" type="freeway_joy_node" name="freeway_joy_node" output="screen" respawn="false">
+		<!-- <remap from="cmd_vel/joy" to="base_velocity"/> -->
+	</node>
+
+	<include if="$(arg semi_flag)" file="$(find safe_teleop_base)/launch/safe_teleop.launch">
+	</include>
 </launch>

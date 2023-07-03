@@ -54,7 +54,7 @@
   <node if="$(arg joy_flag)" pkg="freeway_joy" type="freeway_joy_node" name="freeway_joy_node" output="screen" respawn="false"/>
   <node if="$(arg serial_flag)" pkg="rosserial_python" type="serial_node.py" name="serial_node" output="screen">
     <param name="port"	value="/dev/STMJOY" />
-    <param name="baud"	value="115200" />
+    <param name="baud"	value="57600" />
   </node>
 
   <node if="$(arg repub_flag)" pkg="rplidar_ros" type="rplidarNode_filter_repub" name="rplidarNode_filter_repub" output="screen" respawn="false"/>

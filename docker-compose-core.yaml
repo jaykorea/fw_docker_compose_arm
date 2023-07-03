@@ -88,6 +88,7 @@ services:
       - "~/docker_compose/docker_carto_arm/launch/fw_ttc:/home/freeway_rev04/src/fw_ttc"
       # - "~/docker_compose/docker_carto_arm/launch/fw_rtabmap:/home/freeway_rev04/src/fw_rtabmap"
       - "~/docker_compose/docker_carto_arm/launch/fw_navigation:/home/freeway_rev04/src/fw_navigation"
+      - "~/docker_compose/docker_carto_arm/launch/fw_semiauto:/home/freeway_rev04/src/fw_semiauto"
       - "~/docker_compose/docker_carto_arm/launch/yocs_velocity_smoother:/home/navigation_ws/src/navigation/yocs_velocity_smoother"
       - "~/docker_compose/docker_carto_arm/launch/yocs_cmd_vel_mux:/home/navigation_ws/src/navigation/yocs_cmd_vel_mux"
     command: ["/bin/zsh", "-c", "source /root/.zshrc; roslaunch --wait fw_rev_04_init fw_robot.launch;"]
