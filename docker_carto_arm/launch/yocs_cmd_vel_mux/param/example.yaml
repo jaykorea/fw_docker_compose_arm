@@ -19,7 +19,7 @@ subscribers:
   #   priority:    0
   #   short_desc:  "default e_stop controller"
   - name:        "Navigation stack"
-    topic:       "/cmd_vel/nav/mux"
+    topic:       "/cmd_vel/nav"
     timeout:     0.5
     priority:    0
     short_desc:  "joystick controller"
@@ -37,13 +37,13 @@ subscribers:
     short_desc:  "Keyboard teleop controller"
 
   - name:        "emer control"
-    topic:       "/cmd_vel/emer/mux"
+    topic:       "/cmd_vel/emer"
     timeout:     1.0
     priority:    3
     short_desc:  "emer controller"
 
   - name:        "super emer control"
-    topic:       "/cmd_vel/super_emer/mux"
+    topic:       "/cmd_vel/super_emer"
     timeout:     1.0
     priority:    4
     short_desc:  "super emer controller"

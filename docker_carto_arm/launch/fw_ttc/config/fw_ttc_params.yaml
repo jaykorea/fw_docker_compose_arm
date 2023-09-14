@@ -11,8 +11,8 @@ ttc_time: 1.5 # minimum TTC time.
 ttc_deg: 3 # should satisfy at least 2 degree range data.
 
 signal_distance: 0.2 # minimum distance for to detect front obstacle in (m).
-signal_distance_teb: 0.1 # minimum distance for TEB to detect front obstacle in (m).
-signal_release: 0.25 # release distance in (m).
+signal_distance_teb: 0.12 # minimum distance for TEB to detect front obstacle in (m).
+signal_release: 0.35 # release distance in (m).
 
 # angle_min: -3.14 # should correspond to the akusense driver launch parameter setting.
 # angle_max: 3.14 # should correspond to the akusense driver launch parameter setting.

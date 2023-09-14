@@ -150,7 +150,8 @@ void e_stop_timer_callback(const ros::TimerEvent& event, ros::NodeHandle& nh)
         // Start a timer to check if cmd_vel_msg.linear.x decreases to zero
         e_stop_timer = nh.createTimer(ros::Duration(0.025), [&](const ros::TimerEvent&){
             if (cmd_vel_msg.linear.x > 0.0 || odom_msg.twist.twist.linear.x > 0.0) {
-              cmd_emer_super_pub.publish(zero_velocity);
+                InitSetBrakeStop();
+                cmd_emer_super_pub.publish(zero_velocity);
             }
             else {
         		InitSetBrakeStop();

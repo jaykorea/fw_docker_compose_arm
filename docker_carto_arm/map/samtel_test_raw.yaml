@@ -1,0 +1,7 @@
+image: /robot/map/samtel_test_raw.pgm
+resolution: 0.025000
+origin: [-4.794543, -5.075000, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

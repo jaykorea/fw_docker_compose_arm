@@ -12,8 +12,8 @@
         <param name = "halltype"         value = "30"/>
         <param name = "maxrpm"           value = "300"/>
         <param name = "angleresolution"  value = "1"/>
-        <param name = "slowstart"        value = "10"/>
-        <param name = "slowdown"         value = "5"/>
+        <param name = "slowstart"        value = "50"/>
+        <param name = "slowdown"         value = "25"/>
 	    <param name = "stopstatus" 	     value = "1"/> <!-- 0 1 2 3 4 5-->
     </node>
 

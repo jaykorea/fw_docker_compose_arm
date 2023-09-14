@@ -13,7 +13,7 @@
   <arg name="mux_flag" default="false"/>
   <arg name="repub_flag"  default="false"/>
   <arg name="rf2o_flag" default="false"/>
-  <arg name="imu_flag"  default="true"/>
+  <arg name="imu_flag"  default="false"/>
   
   <!-- move_base -->
   <node if="$(arg move_base_flag)" name="move_base_flex" pkg="mbf_costmap_nav" type="mbf_costmap_nav" required="true" output="screen">

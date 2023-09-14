@@ -12,16 +12,16 @@
 	</include> -->
 	<include file="$(find rplidar_ros)/launch/fw_rp_s2.launch">
 	</include>
-	<include if="$(arg smooth_flag)" file="$(find yocs_velocity_smoother)/launch/standalone_nav.launch">
-  	</include>
+	<!-- <include if="$(arg smooth_flag)" file="$(find yocs_velocity_smoother)/launch/standalone_nav.launch">
+  	</include> -->
   	<include if="$(arg smooth_flag)" file="$(find yocs_velocity_smoother)/launch/standalone_joy.launch">
   	</include>
   	<include if="$(arg smooth_flag)" file="$(find yocs_velocity_smoother)/launch/standalone_teleop.launch">
   	</include>
-  	<include if="$(arg smooth_flag)" file="$(find yocs_velocity_smoother)/launch/standalone_emer.launch">
+  	<!-- <include if="$(arg smooth_flag)" file="$(find yocs_velocity_smoother)/launch/standalone_emer.launch">
   	</include>
   	<include if="$(arg smooth_flag)" file="$(find yocs_velocity_smoother)/launch/standalone_super_emer.launch">
-  	</include>
+  	</include> -->
 	
   	<include if="$(arg mux_flag)" file="$(find yocs_cmd_vel_mux)/launch/standalone.launch"/>
 	<!-- <include file="$(find laser_filters)/launch/fw_filter.launch">

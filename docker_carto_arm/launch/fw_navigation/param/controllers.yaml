@@ -31,18 +31,18 @@ TebLocalPlannerROS:
   allow_init_with_backwards_motion: False
  
   # Robot
-  max_vel_x: 0.55 # default 0.25
+  max_vel_x: 0.85 # default 0.25, 0.6
   max_vel_y: 0 # default 0.25
   max_vel_x_backwards: 0.15
-  max_vel_theta: 0.4 # default 0.45
-  acc_lim_x: 0.12 # default 0.5
+  max_vel_theta: 0.5 # default 0.45
+  acc_lim_x: 0.25 # default 0.5
   acc_lim_y: 0
   acc_lim_theta: 0.4 # default : 0.4
   min_turning_radius: 0
   footprint_model:   # types: "point", "circular", "two_circles", "line", "polygon"
    type: "circular" #"line"
    #vertices: [[-0.305, -0.305], [-0.305, -0.305], [-0.305, -0.305], [-0.305, -0.305]] # paddinged 0.00
-   radius: 0.33 # for type "circular"
+   radius: 0.36 # for type "circular"
    #line_start: [-0.15, 0.0] # for type "line"
    #line_end: [0.03, 0.0] # for type "line"
    #front_offset: 0.2 # for type "two_circles"

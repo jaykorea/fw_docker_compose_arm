@@ -156,7 +156,7 @@ obstacle_3d_layer2:
   enabled: true
   track_unkown_space: false
   observation_sources: obstacle_cloud
-  obstacle_cloud: {sensor_fame: d455_color_optical_frame, data_type: PointCloud2, topic: obstacle_cloud, obstacle_range: 4.0, raytrace_range: 6.0, marking: True, clearing: True, min_obstacle_height: 0.05, max_obstacle_height: 1.5}
+  obstacle_cloud: {sensor_fame: d455_color_optical_frame, data_type: PointCloud2, topic: obstacle_cloud, obstacle_range: 4.0, raytrace_range: 6.0, marking: True, clearing: True, min_obstacle_height: 0.1, max_obstacle_height: 1.5}
 
 global_inflation_layer:
   enabled: true

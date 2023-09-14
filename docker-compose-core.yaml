@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 
 # networks:
 #   my-net:
@@ -70,11 +70,22 @@ services:
     # ipc: host
     stdin_open: true # docker run -i
     tty: true        # docker run -t
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 1
+            capabilities: [gpu]
     privileged: true
     environment:
+      - "/dev:/dev"
+      - "NVIDIA_DRIVER_CAPABILITIES=all"
+      - "DISPLAY=$DISPLAY"
+      - "QT_X11_NO_MITSHM=1"
+      - "XAUTHORITY=/tmp/.docker.xauth"
       - "ROS_HOSTNAME=192.168.2.3"
       - "ROS_MASTER_URI=http://192.168.2.3:11311"
-    # command: zsh
     volumes:
       - "/dev/MD:/dev/MD"
       - "/dev/STMJOY:/dev/STMJOY"
