@@ -1,0 +1,3 @@
+[submodule "bt_share"]
+	path = bt_share
+	url = https://github.com/jaykorea/bt_share
